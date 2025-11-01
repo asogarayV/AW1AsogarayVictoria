@@ -7,21 +7,92 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/Assets/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h3 >NOBLE CEBADA</h3>
-        
-        <nav>
-           <ul>
-                <li>
-                    <a href="index.html">Inicio</a>
-                    <!-- <a href="Pages/Nosotros.html">Nosotros</a>
-                    <a href="Pages/Productos.html">Productos</a> -->
-                    <a href="Pages/SingUp.html">Registrarse</a>
-                    <!-- <a href="Pages/LogIn.html">Iniciar sesión</a> -->
-                </li>
-            </ul>    
-        </nav>
+
+        <header class="navbar">
+            <img src="assets/img/LogoNC.png" alt="Noble Cebada" class="logo">
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="/Pages/Productos.html">Tienda</a>
+                <a href="/Pages/Nosotros.html">Nosotros</a>
+                <a href="/Pages/LogIn.html">Ingresar</a>
+                <a href="/Pages/SingUp.html">Registro</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- carrusel sin JS -->
+            <section class="carousel" aria-label="Galería principal">
+                <div class="slides" id="slides">
+                    <figure class="slide" id="s1">
+                        <img src="assets/img/Mate1.png" alt="Mate artesanal sobre mesa de madera">
+                        <figcaption>Diseño y tradición para tu ritual diario</figcaption>
+                    </figure>
+                    <figure class="slide" id="s2">
+                        <img src="assets/img/MateTermo3.png" alt="Termo y yerba listos para compartir">
+                        <figcaption>Calidad que acompaña todos los días</figcaption>
+                    </figure>
+                    <figure class="slide" id="s3">
+                        <img src="assets/img/MateTermo2.png" alt="Set de mate con accesorios">
+                        <figcaption>Accesorios que hacen la diferencia</figcaption>
+                    </figure>
+                </div>
+
+                <!-- enlaces a cada slide -->
+                <div class="dots" aria-label="Navegación del carrusel">
+                <a href="#s1" aria-label="Ir a la imagen 1"></a>
+                <a href="#s2" aria-label="Ir a la imagen 2"></a>
+                <a href="#s3" aria-label="Ir a la imagen 3"></a>
+                </div>
+            </section>
+
+            <!-- productos destacados -->
+            <h2 class="titulo">Productos destacados</h2>
+            <section class="productos">
+                <div class="card">
+                    <img src="assets/img/mateimperial.png" alt="Mate Imperial">
+                    <h2>Mate Imperial</h2>
+                    <p>$21.990</p>
+                    <button>Agregar</button>
+                </div>
+                <div class="card">
+                    <img src="assets/img/termo.png" alt="Termo Acero 1L">
+                    <h2>Termo Acero 1L</h2>
+                    <p>$30.500</p>
+                    <button>Agregar</button>
+                </div>
+                <div class="card">
+                    <img src="assets/img/yerba.png" alt="Yerba Selección 1Kg">
+                    <h2>Yerba Selección 500gr</h2>
+                    <p>$5.990</p>
+                    <button>Agregar</button>
+                </div>
+            </section>
+        </main>
+
+
+        <!-- <footer class="footer">
+            <p>© 2025 Noble Cebada · Todos los derechos reservados</p>
+
+            <div class="redes">
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="assets/img/instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <img src="assets/img/facebook.svg" alt="Facebook">
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank">
+                    <img src="assets/img/tiktok.svg" alt="TikTok">
+                </a>
+                <a href="https://wa.me/549XXXXXXXXXX" target="_blank">
+                    <img src="assets/img/whatsapp.svg" alt="WhatsApp">
+                </a>
+            </div>
+        </footer>  -->
         
         <script src="" async defer></script>
     </body>
