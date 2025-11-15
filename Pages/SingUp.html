@@ -1,48 +1,48 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Noble Cebada</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/Assets/styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header class="navbar">
-            <img src="/Assets/img/LogoNC.png" alt="Noble Cebada" class="logo">
-            <nav>
-                <a href="/index.html">Inicio</a>
-                <a href="/Pages/Productos.html">Tienda</a>
-                <a href="/Pages/Nosotros.html">Nosotros</a>
-                <a href="/Pages/LogIn.html">Ingresar</a>
-                <a href="/Pages/SingUp.html">Registro</a>
-            </nav>
-        </header>
-        
-        <main class="formulario">
-            <h1>Crear cuenta</h1>
-            <form>
-                <label>Nombre</label>
-                <input type="text" required>
-    
-                <label>Apellido</label>
-                <input type="text" required>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noble Cebada - Registro</title>
+    <link rel="stylesheet" href="../Assets/styles.css">
+</head>
+<body>
 
-                <label>Email</label>
-                <input type="email" required>
+    <header id="navbar"></header>
 
-                <label>Contraseña</label>
-                <input type="password" required>
+    <main class="formulario">
+        <h1>Crear cuenta</h1>
 
-                <button type="submit">Registrarme</button>
-            </form>
-        </main>
+        <form id="form-registro">
+            <label>Nombre</label>
+            <input type="text" required>
 
-        
-        <script src="" async defer></script>
-    </body>
+            <label>Apellido</label>
+            <input type="text" required>
+
+            <label>Email</label>
+            <input type="email" required>
+
+            <label>Contraseña</label>
+            <input type="password" required>
+
+            <button type="submit">Registrarme</button>
+        </form>
+    </main>
+
+    <!-- 🔥 Modal éxito -->
+    <div id="modal-exito" class="modal">
+        <div class="modal-content">
+            <p>🎉 Registro exitoso. ¡Bienvenido a Noble Cebada!</p>
+            <button id="btn-modal-ok">Aceptar</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Noble Cebada · Todos los derechos reservados</p>
+    </footer>
+
+    <script src="../Assets/app.js"></script>
+
+</body>
 </html>
