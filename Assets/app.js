@@ -24,6 +24,9 @@ const rutas = [
 let carrito = [];                // {id, nombre, precio, cantidad}
 let totalItemsCarrito = 0;
 
+// Productos cargados desde JSON
+let productos = [];
+
 // Actualizar contador del carrito
 function actualizarCarritoNavbar() {
   const carritoSpan = document.getElementById("carrito-count");
@@ -140,30 +143,24 @@ function initLoginPage() {
 }
 
 
-// Datos de productos 
-const productos = [
-  {
-    id: 1,
-    nombre: "Mate Imperial",
-    descripcion: "Mate de calabaza forrado en cuero, estilo imperial.",
-    precio: 21990,
-    imagen: "Assets/img/mateimperial.png"
-  },
-  {
-    id: 2,
-    nombre: "Termo Acero 1L",
-    descripcion: "Termo de acero inoxidable, ideal para uso diario.",
-    precio: 30500,
-    imagen: "Assets/img/termo.png"
-  },
-  {
-    id: 3,
-    nombre: "Yerba Selección 500gr",
-    descripcion: "Yerba suave para mates largos y parejos.",
-    precio: 5990,
-    imagen: "Assets/img/yerba.png"
+// Cargar productos desde JSON con fetch
+async function cargarProductos(basePath = "") {
+  if (productos.length > 0) return productos;
+
+  try {
+    const respuesta = await fetch(basePath + "Assets/productos.json");
+    if (!respuesta.ok) {
+      throw new Error("Error al cargar productos");
+    }
+
+    const datos = await respuesta.json();
+    productos = datos;
+    return productos;
+  } catch (error) {
+    console.error("No se pudieron cargar los productos:", error);
+    return [];
   }
-];
+}
 
 // Card de producto
 function crearCardProducto(producto, basePath = "") {
@@ -209,16 +206,57 @@ function crearCardProducto(producto, basePath = "") {
   return card;
 }
 
-// Render productos
-function renderProductos(containerId, basePath = "") {
+// Render productos 
+async function renderProductos(containerId, basePath = "") {
   const contenedor = document.getElementById(containerId);
   if (!contenedor) return;
 
+  const lista = await cargarProductos(basePath);
+
   contenedor.innerHTML = "";
-  productos.forEach(prod => {
+  lista.forEach(prod => {
     const card = crearCardProducto(prod, basePath);
     contenedor.appendChild(card);
   });
+}
+
+// Render productos en el HOME: 2–3 por categoría
+async function renderHomeProductos(containerId, basePath = "") {
+  const contenedor = document.getElementById(containerId);
+  if (!contenedor) return;
+
+  const lista = await cargarProductos(basePath);
+  contenedor.innerHTML = "";
+
+  const categorias = [...new Set(lista.map(p => p.categoria))];
+
+  categorias.forEach(categoria => {
+    const tituloCat = document.createElement("h3");
+    tituloCat.textContent = categoria.charAt(0).toUpperCase() + categoria.slice(1);
+    tituloCat.className = "subtitulo-categoria";
+    contenedor.appendChild(tituloCat);
+
+    const fila = document.createElement("div");
+    fila.className = "productos";
+
+    const productosCat = lista
+      .filter(p => p.categoria === categoria)
+      .slice(0, 3);
+
+    productosCat.forEach(prod => {
+      const card = crearCardProducto(prod, basePath);
+      fila.appendChild(card);
+    });
+
+    contenedor.appendChild(fila);
+  });
+}
+
+function initHomePage() {
+  // Usuario logueado, navbar normal
+  initLoggedPage("navbar", null, "");
+  // Productos por categoría en el home
+  renderHomeProductos("productos-destacados", "");
 }
 
 // Páginas logueadas

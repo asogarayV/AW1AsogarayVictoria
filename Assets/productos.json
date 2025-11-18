@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nombre": "Mate Imperial Clásico",
+    "descripcion": "Mate de calabaza forrado en cuero, virola de aluminio.",
+    "precio": 21990,
+    "imagen": "Assets/img/mateimperial.png",
+    "categoria": "mates"
+  },
+  {
+    "id": 2,
+    "nombre": "Mate Torpedo",
+    "descripcion": "Mate de madera con interior de acero, ideal para uso diario.",
+    "precio": 18990,
+    "imagen": "Assets/img/mateimperial.png",
+    "categoria": "mates"
+  },
+  {
+    "id": 3,
+    "nombre": "Termo Acero 1L",
+    "descripcion": "Termo de acero inoxidable, conserva la temperatura por 12 hs.",
+    "precio": 30500,
+    "imagen": "Assets/img/termo.png",
+    "categoria": "termos"
+  },
+  {
+    "id": 4,
+    "nombre": "Termo Verde 750ml",
+    "descripcion": "Termo liviano para llevar a todos lados.",
+    "precio": 27990,
+    "imagen": "Assets/img/termo.png",
+    "categoria": "termos"
+  },
+  {
+    "id": 5,
+    "nombre": "Yerba Selección 500gr",
+    "descripcion": "Yerba suave para mates largos y parejos.",
+    "precio": 5990,
+    "imagen": "Assets/img/yerba.png",
+    "categoria": "yerbas"
+  },
+  {
+    "id": 6,
+    "nombre": "Yerba Intensa 1kg",
+    "descripcion": "Sabor más fuerte, ideal para quienes prefieren un mate cargado.",
+    "precio": 10490,
+    "imagen": "Assets/img/yerba.png",
+    "categoria": "yerbas"
+  }
+]
