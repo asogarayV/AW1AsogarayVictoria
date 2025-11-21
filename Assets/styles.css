@@ -481,6 +481,21 @@ body {
   }
 }
 
+.btn-eliminar {
+  background-color: #b82f2f;
+  color: #ffffff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-eliminar:hover {
+  background-color: #8a1e1e;
+}
+
+
 
 /*  CONTENEDOR PRINCIPAL DE PRODUCTOS DESTACADOS  */
 #productos-destacados {

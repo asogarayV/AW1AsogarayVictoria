@@ -121,6 +121,9 @@ function renderNavbar(containerId, loggedIn, basePath = "") {
       totalItemsCarrito = 0;
       localStorage.removeItem("carrito");
 
+      // Borrar usuario logueado
+      sessionStorage.removeItem("usuario");
+
       // Redirigir al login
       window.location.href = basePath + "Pages/LogIn.html";
     });
@@ -138,6 +141,13 @@ function initLoginPage() {
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
+
+    const email = form.querySelector('input[type="email"]').value;
+
+    // Guardar usuario logueado en sessionStorage
+    sessionStorage.setItem("usuario", JSON.stringify({ email }));
+
+    // Ir a la tienda
     window.location.href = "Productos.html";
   });
 }
@@ -232,7 +242,8 @@ async function renderHomeProductos(containerId, basePath = "") {
 
   categorias.forEach(categoria => {
     const tituloCat = document.createElement("h3");
-    tituloCat.textContent = categoria.charAt(0).toUpperCase() + categoria.slice(1);
+    tituloCat.textContent = 
+      categoria.charAt(0).toUpperCase() + categoria.slice(1);
     tituloCat.className = "subtitulo-categoria";
     contenedor.appendChild(tituloCat);
 
@@ -305,6 +316,21 @@ function initCartPage(basePath = "../") {
       <span>$${subtotal.toLocaleString("es-AR")}</span>
     `;
 
+    // Botón para eliminar este producto del carrito
+    const btnEliminar = document.createElement("button");
+    btnEliminar.className = "btn-eliminar";
+    btnEliminar.textContent = "Eliminar";
+
+    btnEliminar.addEventListener("click", () => {
+      // Sacar producto del array
+      carrito = carrito.filter(p => p.id !== item.id);
+
+      // Guardar cambios y recargar carrito
+      guardarCarritoEnStorage();
+      initCartPage(basePath);
+    });
+
+    row.appendChild(btnEliminar);
     lista.appendChild(row);
   });
 
@@ -317,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("modal-exito");
     const btnOk = document.getElementById("btn-modal-ok");
 
-    if (!form) return;
+    if (!form || !modal || !btnOk) return;
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
