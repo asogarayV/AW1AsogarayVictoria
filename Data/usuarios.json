@@ -1,0 +1,74 @@
+[
+  {
+    "id": 101,
+    "nombre": "Victoria",
+    "apellido": "Asogaray",
+    "email": "vicky@asogaray.com",
+    "contrasena": "vicky2025",
+    "admin": true
+  },
+  {
+    "id": 102,
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "email": "juan.perez@mail.com",
+    "contrasena": "user102",
+    "admin": false
+  },
+  {
+    "id": 103,
+    "nombre": "Maria",
+    "apellido": "Gomez",
+    "email": "m.gomez@mail.com",
+    "contrasena": "maria123",
+    "admin": false
+  },
+  {
+    "id": 104,
+    "nombre": "Lucas",
+    "apellido": "Rodriguez",
+    "email": "lucas.r@mail.com",
+    "contrasena": "lucaspass",
+    "admin": false
+  },
+  {
+    "id": 105,
+    "nombre": "Ana",
+    "apellido": "Martinez",
+    "email": "ana.mtz@mail.com",
+    "contrasena": "ana2024",
+    "admin": false
+  },
+  {
+    "id": 106,
+    "nombre": "Facundo",
+    "apellido": "Sosa",
+    "email": "facu.sosa@mail.com",
+    "contrasena": "facu77",
+    "admin": false
+  },
+  {
+    "id": 107,
+    "nombre": "Belén",
+    "apellido": "Diaz",
+    "email": "belu.diaz@mail.com",
+    "contrasena": "belu_secret",
+    "admin": false
+  },
+  {
+    "id": 108,
+    "nombre": "Ricardo",
+    "apellido": "Lopez",
+    "email": "ricky.lopez@mail.com",
+    "contrasena": "ricky108",
+    "admin": true
+  },
+  {
+    "id": 109,
+    "nombre": "Sofia",
+    "apellido": "Paz",
+    "email": "sofi.paz@mail.com",
+    "contrasena": "sofi3321",
+    "admin": false
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "id": 5001,
+    "id_usuario": 101,
+    "fecha": "2025-04-01",
+    "total": 52490,
+    "direccion": "Calle Falsa 123, CABA",
+    "productos": [1, 6],
+    "envio_gratis": true
+  },
+  {
+    "id": 5002,
+    "id_usuario": 103,
+    "fecha": "2025-04-05",
+    "total": 18990,
+    "direccion": "Av. Libertador 450, Cordoba",
+    "productos": [2],
+    "envio_gratis": false
+  },
+  {
+    "id": 5003,
+    "id_usuario": 104,
+    "fecha": "2025-04-07",
+    "total": 35000,
+    "direccion": "San Martin 900, Mendoza",
+    "productos": [11, 16],
+    "envio_gratis": true
+  },
+  {
+    "id": 5004,
+    "id_usuario": 102,
+    "fecha": "2025-04-08",
+    "total": 13500,
+    "direccion": "Belgrano 12, Salta",
+    "productos": [15, 14],
+    "envio_gratis": false
+  },
+  {
+    "id": 5005,
+    "id_usuario": 107,
+    "fecha": "2025-04-10",
+    "total": 45000,
+    "direccion": "Rivadavia 110, Rosario",
+    "productos": [8, 12, 38],
+    "envio_gratis": true
+  },
+  {
+    "id": 5006,
+    "id_usuario": 109,
+    "fecha": "2025-04-11",
+    "total": 29000,
+    "direccion": "Colon 55, Tucuman",
+    "productos": [9],
+    "envio_gratis": true
+  },
+  {
+    "id": 5007,
+    "id_usuario": 105,
+    "fecha": "2025-04-12",
+    "total": 22000,
+    "direccion": "Mitre 400, Neuquen",
+    "productos": [23, 10],
+    "envio_gratis": false
+  }
+]
