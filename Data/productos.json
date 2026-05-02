@@ -1,213 +1,250 @@
 {
   "Mates": [
-    {"id": 1, 
-    "nombre": "Mate Imperial Clásico", 
-    "desc": "Calabaza forrada en cuero, virola de aluminio.", 
-    "precio": 21990, "imagen": "assets/img/mate-1.jpg", 
-    "stock": true},
-
-    {"id": 2, "nombre": "Mate Torpedo", 
-    "desc": "Madera con interior de acero inoxidable.", 
-    "precio": 18990, 
-    "imagen": "assets/img/mate-2.jpg", 
-    "stock": true},
-
-    {"id": 3, "nombre": "Mate Camionero", 
-    "desc": "Cuero vaqueta, base reforzada.", 
-    "precio": 19500, 
-    "imagen": "assets/img/mate-3.jpg", 
-    "stock": true},
-
-    {"id": 4, 
-    "nombre": "Mate de Vidrio Forrado", 
-    "desc": "Fácil limpieza, forrado en eco-cuero.", 
-    "precio": 12000, "imagen": "assets/img/mate-4.jpg", 
-    "stock": false},
-
-    {"id": 5, 
-    "nombre": "Mate de Madera Caldén", 
-    "desc": "Madera noble, tallado a mano.", 
-    "precio": 14500, 
-    "imagen": "assets/img/mate-5.jpg", 
-    "stock": true},
-
-    {"id": 18, 
-    "nombre": "Mate Silicona Color", 
-    "desc": "Flexible e irrompible.", 
-    "precio": 7500, 
-    "imagen": "assets/img/mate-6.jpg", 
-    "stock": true},
-
-    {"id": 19, 
-    "nombre": "Mate Cerámica Art", 
-    "desc": "Diseño artesanal pintado a mano.", 
-    "precio": 13200, 
-    "imagen": "assets/img/mate-7.jpg", 
-    "stock": true},
-
-    {"id": 20, 
-    "nombre": "Mate Plástico Reforzado", 
-    "desc": "Económico y resistente.", 
-    "precio": 4500, "imagen": "assets/img/mate-8.jpg", 
-    "stock": true},
-
-    {"id": 23, 
-    "nombre": "Mate de Palo Santo", 
-    "desc": "Aroma único, requiere curado.", 
-    "precio": 16000, 
-    "imagen": "assets/img/mate-9.jpg", 
-    "stock": true}
+    {
+      "id": 1,
+      "nombre": "Mate Imperial Clásico",
+      "desc": "Calabaza forrada en cuero, virola de aluminio.",
+      "precio": 21990,
+      "imagen": "assets/img/mate-1.jpg",
+      "stock": 12
+    },
+    {
+      "id": 2,
+      "nombre": "Mate Torpedo",
+      "desc": "Madera con interior de acero inoxidable.",
+      "precio": 18990,
+      "imagen": "assets/img/mate-2.jpg",
+      "stock": 15
+    },
+    {
+      "id": 3,
+      "nombre": "Mate Camionero",
+      "desc": "Cuero vaqueta, base reforzada.",
+      "precio": 19500,
+      "imagen": "assets/img/mate-3.jpg",
+      "stock": 8
+    },
+    {
+      "id": 4,
+      "nombre": "Mate de Vidrio Forrado",
+      "desc": "Fácil limpieza, forrado en eco-cuero.",
+      "precio": 12000,
+      "imagen": "assets/img/mate-4.jpg",
+      "stock": 0
+    },
+    {
+      "id": 5,
+      "nombre": "Mate de Madera Caldén",
+      "desc": "Madera noble, tallado a mano.",
+      "precio": 14500,
+      "imagen": "assets/img/mate-5.jpg",
+      "stock": 6
+    },
+    {
+      "id": 18,
+      "nombre": "Mate Silicona Color",
+      "desc": "Flexible e irrompible.",
+      "precio": 7500,
+      "imagen": "assets/img/mate-6.jpg",
+      "stock": 25
+    },
+    {
+      "id": 19,
+      "nombre": "Mate Cerámica Art",
+      "desc": "Diseño artesanal pintado a mano.",
+      "precio": 13200,
+      "imagen": "assets/img/mate-7.jpg",
+      "stock": 4
+    },
+    {
+      "id": 20,
+      "nombre": "Mate Plástico Reforzado",
+      "desc": "Económico y resistente.",
+      "precio": 4500,
+      "imagen": "assets/img/mate-8.jpg",
+      "stock": 30
+    },
+    {
+      "id": 23,
+      "nombre": "Mate de Palo Santo",
+      "desc": "Aroma único, requiere curado.",
+      "precio": 16000,
+      "imagen": "assets/img/mate-9.jpg",
+      "stock": 3
+    }
   ],
-
   "Termos": [
-    {"id": 6, 
-    "nombre": "Termo Acero 1L", 
-    "desc": "Doble capa, conserva 12hs frío/calor.", 
-    "precio": 30500, 
-    "imagen": "assets/img/termo-1.jpg", 
-    "stock": true},
-
-    {"id": 7, 
-    "nombre": "Termo Verde 750ml", 
-    "desc": "Liviano, ideal para viajes cortos.", 
-    "precio": 27990, 
-    "imagen": "assets/img/termo-2.jpg", 
-    "stock": true},
-
-    {"id": 8, 
-    "nombre": "Termo Bala Black", 
-    "desc": "Acero engomado negro mate.", 
-    "precio": 32000, 
-    "imagen": "assets/img/termo-3.jpg", 
-    "stock": true},
-
-    {"id": 9, 
-    "nombre": "Termo Media Manija", 
-    "desc": "Clásico diseño con agarre firme.", 
-    "precio": 29000, 
-    "imagen": "assets/img/termo-4.jpg", 
-    "stock": false},
-
-    {"id": 21, 
-    "nombre": "Termo de Vidrio 1L", 
-    "desc": "Interior de vidrio, ampolla repuesto.", 
-    "precio": 15000, 
-    "imagen": "assets/img/termo-5.jpg", 
-    "stock": true},
-
-    {"id": 22, 
-    "nombre": "Termo Deportivo 500ml", 
-    "desc": "Pico cebador rápido.", 
-    "precio": 18500, 
-    "imagen": "assets/img/termo-6.jpg", 
-    "stock": true},
-
-    {"id": 30, 
-    "nombre": "Termo Infantil 350ml", 
-    "desc": "Tamaño pequeño para niños.", 
-    "precio": 12500, 
-    "imagen": "assets/img/termo-7.jpg", 
-    "stock": true}
+    {
+      "id": 6,
+      "nombre": "Termo Acero 1L",
+      "desc": "Doble capa, conserva 12hs frío/calor.",
+      "precio": 30500,
+      "imagen": "assets/img/termo-1.jpg",
+      "stock": 10
+    },
+    {
+      "id": 7,
+      "nombre": "Termo Verde 750ml",
+      "desc": "Liviano, ideal para viajes cortos.",
+      "precio": 27990,
+      "imagen": "assets/img/termo-2.jpg",
+      "stock": 14
+    },
+    {
+      "id": 8,
+      "nombre": "Termo Bala Black",
+      "desc": "Acero engomado negro mate.",
+      "precio": 32000,
+      "imagen": "assets/img/termo-3.jpg",
+      "stock": 7
+    },
+    {
+      "id": 9,
+      "nombre": "Termo Media Manija",
+      "desc": "Clásico diseño con agarre firme.",
+      "precio": 29000,
+      "imagen": "assets/img/termo-4.jpg",
+      "stock": 0
+    },
+    {
+      "id": 21,
+      "nombre": "Termo de Vidrio 1L",
+      "desc": "Interior de vidrio, ampolla repuesto.",
+      "precio": 15000,
+      "imagen": "assets/img/termo-5.jpg",
+      "stock": 9
+    },
+    {
+      "id": 22,
+      "nombre": "Termo Deportivo 500ml",
+      "desc": "Pico cebador rápido.",
+      "precio": 18500,
+      "imagen": "assets/img/termo-6.jpg",
+      "stock": 20
+    },
+    {
+      "id": 30,
+      "nombre": "Termo Infantil 350ml",
+      "desc": "Tamaño pequeño para niños.",
+      "precio": 12500,
+      "imagen": "assets/img/termo-7.jpg",
+      "stock": 5
+    }
   ],
   "Yerbas": [
-    {"id": 10, 
-    "nombre": "Yerba Selección 500gr", 
-    "desc": "Molienda equilibrada, bajo contenido de polvo.", 
-    "precio": 5990, 
-    "imagen": "assets/img/yerba-1.jpg", 
-    "stock": true},
-
-    {"id": 11, 
-    "nombre": "Yerba Intensa 1kg", 
-    "desc": "Sabor fuerte y duradero.", 
-    "precio": 10490, 
-    "imagen": "assets/img/yerba-2.jpg", 
-    "stock": true},
-
-    {"id": 12, 
-    "nombre": "Yerba con Hierbas 500gr", 
-    "desc": "Mezcla con menta, poleo y peperina.", 
-    "precio": 6200, 
-    "imagen": "assets/img/yerba-3.jpg", 
-    "stock": true},
-
-    {"id": 13, 
-    "nombre": "Yerba Orgánica 500gr", 
-    "desc": "Sin agroquímicos, secado natural.", 
-    "precio": 8500, 
-    "imagen": "assets/img/yerba-4.jpg", 
-    "stock": true},
-
-    {"id": 24, 
-    "nombre": "Yerba Barbacuá 1kg", 
-    "desc": "Secado artesanal con humo.", 
-    "precio": 12000, 
-    "imagen": "assets/img/yerba-5.jpg", 
-    "stock": true},
-
-    {"id": 25, 
-    "nombre": "Yerba Despalada 500gr", 
-    "desc": "Pura hoja, sabor concentrado.", 
-    "precio": 9200, 
-    "imagen": "assets/img/yerba-6.jpg", 
-    "stock": true},
-
-    {"id": 31, 
-    "nombre": "Yerba Tereré Menta", 
-    "desc": "Molienda gruesa especial frío.", 
-    "precio": 7000, 
-    "imagen": "assets/img/yerba-7.jpg", 
-    "stock": true},
-
-    {"id": 37, 
-    "nombre": "Yerba Suave 2kg", 
-    "desc": "Pack familiar ahorro.", 
-    "precio": 18000, 
-    "imagen": "assets/img/yerba-8.jpg", 
-    "stock": true}
+    {
+      "id": 10,
+      "nombre": "Yerba Selección 500gr",
+      "desc": "Molienda equilibrada, bajo contenido de polvo.",
+      "precio": 5990,
+      "imagen": "assets/img/yerba-1.jpg",
+      "stock": 40
+    },
+    {
+      "id": 11,
+      "nombre": "Yerba Intensa 1kg",
+      "desc": "Sabor fuerte y duradero.",
+      "precio": 10490,
+      "imagen": "assets/img/yerba-2.jpg",
+      "stock": 25
+    },
+    {
+      "id": 12,
+      "nombre": "Yerba con Hierbas 500gr",
+      "desc": "Mezcla con menta, poleo y peperina.",
+      "precio": 6200,
+      "imagen": "assets/img/yerba-3.jpg",
+      "stock": 18
+    },
+    {
+      "id": 13,
+      "nombre": "Yerba Orgánica 500gr",
+      "desc": "Sin agroquímicos, secado natural.",
+      "precio": 8500,
+      "imagen": "assets/img/yerba-4.jpg",
+      "stock": 12
+    },
+    {
+      "id": 24,
+      "nombre": "Yerba Barbacuá 1kg",
+      "desc": "Secado artesanal con humo.",
+      "precio": 12000,
+      "imagen": "assets/img/yerba-5.jpg",
+      "stock": 10
+    },
+    {
+      "id": 25,
+      "nombre": "Yerba Despalada 500gr",
+      "desc": "Pura hoja, sabor concentrado.",
+      "precio": 9200,
+      "imagen": "assets/img/yerba-6.jpg",
+      "stock": 15
+    },
+    {
+      "id": 31,
+      "nombre": "Yerba Tereré Menta",
+      "desc": "Molienda gruesa especial frío.",
+      "precio": 7000,
+      "imagen": "assets/img/yerba-7.jpg",
+      "stock": 22
+    },
+    {
+      "id": 37,
+      "nombre": "Yerba Suave 2kg",
+      "desc": "Pack familiar ahorro.",
+      "precio": 18000,
+      "imagen": "assets/img/yerba-8.jpg",
+      "stock": 8
+    }
   ],
-
   "Accesorios": [
-    {"id": 14, 
-    "nombre": "Bombilla de Alpaca", 
-    "desc": "Filtro de resorte, no se tapa.", 
-    "precio": 8000, 
-    "imagen": "assets/img/acc-1.jpg", 
-    "stock": true},
-
-    {"id": 15, 
-    "nombre": "Bombilla de Acero Plana", 
-    "desc": "Fácil desarme para limpieza.", 
-    "precio": 5500, 
-    "imagen": "assets/img/acc-2.jpg", 
-    "stock": true},
-
-    {"id": 16, 
-    "nombre": "Matera de Cuero", 
-    "desc": "Bolso reforzado para kit completo.", 
-    "precio": 25000, 
-    "imagen": "assets/img/acc-3.jpg", 
-    "stock": true},
-
-    {"id": 17, 
-    "nombre": "Yerbera y Azucarera", 
-    "desc": "Set de latas forradas en eco-cuero.", 
-    "precio": 11000, 
-    "imagen": "assets/img/acc-4.jpg", 
-    "stock": true},
- 
-    {"id": 26, 
-    "nombre": "Set Limpieza Bombilla", 
-    "desc": "Cepillo fino de nylon.", 
-    "precio": 2500, 
-    "imagen": "assets/img/acc-5.jpg", 
-    "stock": true},
-
-    {"id": 27, 
-    "nombre": "Portatermo de Lona", 
-    "desc": "Impermeable y lavable.", 
-    "precio": 9800, 
-    "imagen": "assets/img/acc-6.jpg", 
-    "stock": true}
+    {
+      "id": 14,
+      "nombre": "Bombilla de Alpaca",
+      "desc": "Filtro de resorte, no se tapa.",
+      "precio": 8000,
+      "imagen": "assets/img/acc-1.jpg",
+      "stock": 15
+    },
+    {
+      "id": 15,
+      "nombre": "Bombilla de Acero Plana",
+      "desc": "Fácil desarme para limpieza.",
+      "precio": 5500,
+      "imagen": "assets/img/acc-2.jpg",
+      "stock": 20
+    },
+    {
+      "id": 16,
+      "nombre": "Matera de Cuero",
+      "desc": "Bolso reforzado para kit completo.",
+      "precio": 25000,
+      "imagen": "assets/img/acc-3.jpg",
+      "stock": 5
+    },
+    {
+      "id": 17,
+      "nombre": "Yerbera y Azucarera",
+      "desc": "Set de latas forradas en eco-cuero.",
+      "precio": 11000,
+      "imagen": "assets/img/acc-4.jpg",
+      "stock": 10
+    },
+    {
+      "id": 26,
+      "nombre": "Set Limpieza Bombilla",
+      "desc": "Cepillo fino de nylon.",
+      "precio": 2500,
+      "imagen": "assets/img/acc-5.jpg",
+      "stock": 50
+    },
+    {
+      "id": 27,
+      "nombre": "Portatermo de Lona",
+      "desc": "Impermeable y lavable.",
+      "precio": 9800,
+      "imagen": "assets/img/acc-6.jpg",
+      "stock": 12
+    }
   ]
 }

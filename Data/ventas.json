@@ -5,61 +5,81 @@
     "fecha": "2025-04-01",
     "total": 52490,
     "direccion": "Calle Falsa 123, CABA",
-    "productos": [1, 6],
+    "productos": [
+      { "id_producto": 1, "cantidad": 1 },
+      { "id_producto": 6, "cantidad": 1 }
+    ],
     "envio_gratis": true
   },
   {
     "id": 5002,
     "id_usuario": 103,
     "fecha": "2025-04-05",
-    "total": 18990,
+    "total": 37980,
     "direccion": "Av. Libertador 450, Cordoba",
-    "productos": [2],
+    "productos": [
+      { "id_producto": 2, "cantidad": 2 }
+    ],
     "envio_gratis": false
   },
   {
     "id": 5003,
     "id_usuario": 104,
     "fecha": "2025-04-07",
-    "total": 35000,
+    "total": 35490,
     "direccion": "San Martin 900, Mendoza",
-    "productos": [11, 16],
+    "productos": [
+      { "id_producto": 11, "cantidad": 1 },
+      { "id_producto": 16, "cantidad": 1 }
+    ],
     "envio_gratis": true
   },
   {
     "id": 5004,
     "id_usuario": 102,
     "fecha": "2025-04-08",
-    "total": 13500,
+    "total": 19000,
     "direccion": "Belgrano 12, Salta",
-    "productos": [15, 14],
+    "productos": [
+      { "id_producto": 15, "cantidad": 2 },
+      { "id_producto": 14, "cantidad": 1 }
+    ],
     "envio_gratis": false
   },
   {
     "id": 5005,
     "id_usuario": 107,
     "fecha": "2025-04-10",
-    "total": 45000,
+    "total": 51600,
     "direccion": "Rivadavia 110, Rosario",
-    "productos": [8, 12, 38],
+    "productos": [
+      { "id_producto": 8, "cantidad": 1 },
+      { "id_producto": 12, "cantidad": 2 },
+      { "id_producto": 14, "cantidad": 1 }
+    ],
     "envio_gratis": true
   },
   {
     "id": 5006,
     "id_usuario": 109,
     "fecha": "2025-04-11",
-    "total": 29000,
+    "total": 58000,
     "direccion": "Colon 55, Tucuman",
-    "productos": [9],
+    "productos": [
+      { "id_producto": 9, "cantidad": 2 }
+    ],
     "envio_gratis": true
   },
   {
     "id": 5007,
     "id_usuario": 105,
     "fecha": "2025-04-12",
-    "total": 22000,
+    "total": 21990,
     "direccion": "Mitre 400, Neuquen",
-    "productos": [23, 10],
+    "productos": [
+      { "id_producto": 23, "cantidad": 1 },
+      { "id_producto": 10, "cantidad": 1 }
+    ],
     "envio_gratis": false
   }
 ]

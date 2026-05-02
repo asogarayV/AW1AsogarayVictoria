@@ -1,4 +1,139 @@
-// Recuperar carrito desde localStorage
+import express from 'express';
+import fs from 'fs/promises';
+
+const app = express();
+const port = 3000;
+
+// Milddleware para que el servidor procese datos en formato JSON
+app.use(express.json());
+
+// Inicio del Servidor
+app.listen(port, () => {
+    console.log("--------------------------------------------------");
+    console.log(`Servidor de Victoria corriendo en http://localhost:${port}`);
+    console.log("--------------------------------------------------");
+});
+
+// FUNCIONES DE APOYO (Helpers): Para no repetir código de lectura de archivos
+async function leerDatos(archivo) {
+    const data = await fs.readFile(`./Data/${archivo}.json`, 'utf-8');
+    return JSON.parse(data);
+}
+
+// ------------------------------------------------
+// 1. SOLICITUDES GET (Consultar datos)
+// ------------------------------------------------
+
+// GET: Listar todos los productos
+app.get('/productos', async (req, res) => {
+    try {
+        const productos = await leerDatos('productos');
+        res.status(200).json(productos);
+    } catch (error) {
+        res.status(500).json({ mensaje: "Error al leer productos" });
+    }
+});
+
+// GET: Buscar un usuario por su ID
+app.get('/usuarios/:id', async (req, res) => {
+    try {
+        const usuarios = await leerDatos('usuarios');
+        // req.params contiene lo que escribís en la URL (ej: /usuarios/101)
+        const encontrado = usuarios.find(u => u.id === parseInt(req.params.id));
+        
+        if (encontrado) {
+            res.status(200).json(encontrado);
+        } else {
+            res.status(404).json({ mensaje: "Usuario no encontrado" });
+        }
+    } catch (error) {
+        res.status(500).json({ mensaje: "Error en el servidor" });
+    }
+});
+
+// ------------------------------------------------
+// 2. SOLICITUDES POST (Crear o enviar datos sensibles)
+// ------------------------------------------------
+
+// POST: Login (Manejo de email y contraseña en el Body)
+app.post('/login', async (req, res) => {
+    try {
+        const { email, contrasena } = req.body; // Extraemos datos del Body (Postman)
+        const usuarios = await leerDatos('usuarios');
+        const user = usuarios.find(u => u.email === email && u.contrasena === contrasena);
+
+        if (user) {
+            res.status(200).json({ mensaje: `Bienvenida ${user.nombre}`, id: user.id });
+        } else {
+            res.status(401).json({ mensaje: "Email o clave incorrectos" });
+        }
+    } catch (error) {
+        res.status(500).json({ mensaje: "Error al procesar login" });
+    }
+});
+
+// POST: Registrar un nuevo producto (Simulado)
+app.post('/productos', (req, res) => {
+    const nuevo = req.body;
+    res.status(201).json({ mensaje: "Producto registrado con éxito", data: nuevo });
+});
+
+// ------------------------------------------------
+// 3. SOLICITUD PUT (Actualizar datos)
+// ------------------------------------------------
+
+// PUT: Cambiar nombre o datos de un usuario
+app.put('/usuarios/:id', async (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const usuarios = await leerDatos('usuarios');
+        const index = usuarios.findIndex(u => u.id === id);
+
+        if (index !== -1) {
+            // Unimos los datos viejos con los nuevos recibidos
+            const actualizado = { ...usuarios[index], ...req.body };
+            res.status(200).json({ mensaje: "Usuario actualizado", data: actualizado });
+        } else {
+            res.status(404).json({ mensaje: "No se encontró el usuario" });
+        }
+    } catch (error) {
+        res.status(500).json({ mensaje: "Error al actualizar" });
+    }
+});
+
+// ------------------------------------------------
+// 4. SOLICITUD DELETE (Integridad de datos)
+// ------------------------------------------------
+
+app.delete('/usuarios/:id', async (req, res) => {
+    try {
+        const idAEliminar = parseInt(req.params.id);
+        const ventas = await leerDatos('ventas');
+        const usuarios = await leerDatos('usuarios');
+
+        // REGLA DE INTEGRIDAD: Si el usuario tiene ventas, no se borra
+        const tieneVentas = ventas.some(v => v.id_usuario === idAEliminar);
+
+        if (tieneVentas) {
+            return res.status(400).json({ 
+                mensaje: "ERROR DE INTEGRIDAD: El usuario tiene ventas y no puede eliminarse." 
+            });
+        }
+
+        const existe = usuarios.find(u => u.id === idAEliminar);
+        if (!existe) return res.status(404).json({ mensaje: "Usuario no existe" });
+
+        res.status(200).json({ mensaje: "Usuario eliminado (Simulado)" });
+    } catch (error) {
+        res.status(500).json({ mensaje: "Error al intentar eliminar" });
+    }
+});
+
+
+
+
+
+/* // Recuperar carrito desde localStorage
 function cargarCarritoDesdeStorage() {
   const data = localStorage.getItem("carrito");
   carrito = data ? JSON.parse(data) : [];
@@ -358,4 +493,4 @@ document.addEventListener("DOMContentLoaded", () => {
         // Redirigir al login
         window.location.href = "LogIn.html";
     });
-});
+}); */
