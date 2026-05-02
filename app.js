@@ -14,14 +14,14 @@ app.listen(port, () => {
     console.log("--------------------------------------------------");
 });
 
-// FUNCIONES DE APOYO (Helpers): Para no repetir código de lectura de archivos
+// Helperspara no repetir código de lectura de archivos
 async function leerDatos(archivo) {
     const data = await fs.readFile(`./Data/${archivo}.json`, 'utf-8');
     return JSON.parse(data);
 }
 
 // ------------------------------------------------
-// 1. SOLICITUDES GET (Consultar datos)
+// 1. SOLICITUDES GET 
 // ------------------------------------------------
 
 // GET: Listar todos los productos
@@ -52,13 +52,13 @@ app.get('/usuarios/:id', async (req, res) => {
 });
 
 // ------------------------------------------------
-// 2. SOLICITUDES POST (Crear o enviar datos sensibles)
+// 2. SOLICITUDES POST 
 // ------------------------------------------------
 
 // POST: Login (Manejo de email y contraseña en el Body)
 app.post('/login', async (req, res) => {
     try {
-        const { email, contrasena } = req.body; // Extraemos datos del Body (Postman)
+        const { email, contrasena } = req.body; // Extraemos datos del Body 
         const usuarios = await leerDatos('usuarios');
         const user = usuarios.find(u => u.email === email && u.contrasena === contrasena);
 
@@ -72,14 +72,14 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// POST: Registrar un nuevo producto (Simulado)
+// POST: Registrar un nuevo producto 
 app.post('/productos', (req, res) => {
     const nuevo = req.body;
     res.status(201).json({ mensaje: "Producto registrado con éxito", data: nuevo });
 });
 
 // ------------------------------------------------
-// 3. SOLICITUD PUT (Actualizar datos)
+// 3. SOLICITUD PUT 
 // ------------------------------------------------
 
 // PUT: Cambiar nombre o datos de un usuario
@@ -102,7 +102,7 @@ app.put('/usuarios/:id', async (req, res) => {
 });
 
 // ------------------------------------------------
-// 4. SOLICITUD DELETE (Integridad de datos)
+// 4. SOLICITUD DELETE 
 // ------------------------------------------------
 
 app.delete('/usuarios/:id', async (req, res) => {
@@ -111,7 +111,7 @@ app.delete('/usuarios/:id', async (req, res) => {
         const ventas = await leerDatos('ventas');
         const usuarios = await leerDatos('usuarios');
 
-        // REGLA DE INTEGRIDAD: Si el usuario tiene ventas, no se borra
+        // Si el usuario tiene ventas, no se borra
         const tieneVentas = ventas.some(v => v.id_usuario === idAEliminar);
 
         if (tieneVentas) {
