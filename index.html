@@ -13,11 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  
+  <body onload="initHomePage()">
     <header id="navbar"></header>
 
     <main>
-      <!-- Carrusel -->
       <section class="carousel" aria-label="Galería principal">
         <div class="slides">
           <figure class="slide">
@@ -36,9 +36,20 @@
       </section>
 
       <h2 class="titulo">Productos destacados</h2>
-<section id="productos-destacados">
-  <!-- JS llena las cards -->
-</section>
+      <div class="filtros-container">
+            <button class="btn-filtro" onclick="aplicarFiltro('todos')">Todos</button>
+            <button class="btn-filtro" onclick="aplicarFiltro('Mates')">Mates</button>
+            <button class="btn-filtro" onclick="aplicarFiltro('Termos')">Termos</button>
+            <button class="btn-filtro" onclick="aplicarFiltro('Yerbas')">Yerbas</button>
+            <button class="btn-filtro" onclick="aplicarFiltro('Accesorios')">Accesorios</button>
+          </div>
+        <section id="productos-destacados">
+        </section>
+
+        <div style="text-align: center; margin: 40px 0;">
+    <button class="btn-comprar" onclick="finalizarCompra()">FINALIZAR COMPRA</button>
+</div>
+
     </main>
 
     <footer class="footer">
@@ -46,10 +57,8 @@
       <div class="redes"></div>
     </footer>
 
-    <script src="./Assets/app.js"></script>
-    <script>
-      initHomePage();
-    </script>
+    <script src="./Assets/tienda.js"></script>
+    <script>initHomePage();</script>
 
   </body>
 </html>

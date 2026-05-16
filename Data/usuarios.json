@@ -70,5 +70,117 @@
     "email": "sofi.paz@mail.com",
     "contrasena": "sofi3321",
     "admin": false
+  },
+  {
+    "id": 1778892426546,
+    "nombre": "matias",
+    "apellido": "gonzalez",
+    "email": "matiaslunardini@gmail.com",
+    "contrasena": "ciraleon"
+  },
+  {
+    "id": 1778892455494,
+    "nombre": "vicky",
+    "apellido": "asogaray",
+    "email": "vickyasogaray@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778892751822,
+    "nombre": "vick",
+    "apellido": "aso",
+    "email": "vick@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778892765960,
+    "nombre": "hasbx",
+    "apellido": "aacca",
+    "email": "nxajx@jn",
+    "contrasena": "1233"
+  },
+  {
+    "id": 1778893153316,
+    "nombre": "asogaray",
+    "apellido": "asogaray",
+    "email": "asogaray@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778893421440,
+    "nombre": "aa",
+    "apellido": "aa",
+    "email": "aa@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778893443509,
+    "nombre": "aas",
+    "apellido": "sss",
+    "email": "sss@gmail.com",
+    "contrasena": "1233"
+  },
+  {
+    "id": 1778893551671,
+    "nombre": "aaff",
+    "apellido": "aa",
+    "email": "ff@gmail.com",
+    "contrasena": "fff"
+  },
+  {
+    "id": 1778895602461,
+    "nombre": "gg",
+    "apellido": "gg",
+    "email": "g@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778896115714,
+    "nombre": "vv",
+    "apellido": "vv",
+    "email": "v@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778896397235,
+    "nombre": "aa",
+    "apellido": "aa",
+    "email": "kkkkkkkk@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778896613987,
+    "nombre": "q",
+    "apellido": "q",
+    "email": "q@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778897080115,
+    "nombre": "l",
+    "apellido": "l",
+    "email": "l@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778897458790,
+    "nombre": "rrr",
+    "apellido": "rrr",
+    "email": "rrr@gmail.com",
+    "contrasena": "1234"
+  },
+  {
+    "id": 1778897593500,
+    "nombre": "usuario1",
+    "apellido": "usuario12",
+    "email": "usuario@gmail.com",
+    "contrasena": "DOBLEFALTA"
+  },
+  {
+    "id": 1778898200515,
+    "nombre": "h",
+    "apellido": "h",
+    "email": "h@gmail.com",
+    "contrasena": "Ciraleon02++"
   }
 ]

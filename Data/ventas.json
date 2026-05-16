@@ -6,8 +6,14 @@
     "total": 52490,
     "direccion": "Calle Falsa 123, CABA",
     "productos": [
-      { "id_producto": 1, "cantidad": 1 },
-      { "id_producto": 6, "cantidad": 1 }
+      {
+        "id_producto": 1,
+        "cantidad": 1
+      },
+      {
+        "id_producto": 6,
+        "cantidad": 1
+      }
     ],
     "envio_gratis": true
   },
@@ -18,7 +24,10 @@
     "total": 37980,
     "direccion": "Av. Libertador 450, Cordoba",
     "productos": [
-      { "id_producto": 2, "cantidad": 2 }
+      {
+        "id_producto": 2,
+        "cantidad": 2
+      }
     ],
     "envio_gratis": false
   },
@@ -29,8 +38,14 @@
     "total": 35490,
     "direccion": "San Martin 900, Mendoza",
     "productos": [
-      { "id_producto": 11, "cantidad": 1 },
-      { "id_producto": 16, "cantidad": 1 }
+      {
+        "id_producto": 11,
+        "cantidad": 1
+      },
+      {
+        "id_producto": 16,
+        "cantidad": 1
+      }
     ],
     "envio_gratis": true
   },
@@ -41,8 +56,14 @@
     "total": 19000,
     "direccion": "Belgrano 12, Salta",
     "productos": [
-      { "id_producto": 15, "cantidad": 2 },
-      { "id_producto": 14, "cantidad": 1 }
+      {
+        "id_producto": 15,
+        "cantidad": 2
+      },
+      {
+        "id_producto": 14,
+        "cantidad": 1
+      }
     ],
     "envio_gratis": false
   },
@@ -53,9 +74,18 @@
     "total": 51600,
     "direccion": "Rivadavia 110, Rosario",
     "productos": [
-      { "id_producto": 8, "cantidad": 1 },
-      { "id_producto": 12, "cantidad": 2 },
-      { "id_producto": 14, "cantidad": 1 }
+      {
+        "id_producto": 8,
+        "cantidad": 1
+      },
+      {
+        "id_producto": 12,
+        "cantidad": 2
+      },
+      {
+        "id_producto": 14,
+        "cantidad": 1
+      }
     ],
     "envio_gratis": true
   },
@@ -66,7 +96,10 @@
     "total": 58000,
     "direccion": "Colon 55, Tucuman",
     "productos": [
-      { "id_producto": 9, "cantidad": 2 }
+      {
+        "id_producto": 9,
+        "cantidad": 2
+      }
     ],
     "envio_gratis": true
   },
@@ -77,9 +110,205 @@
     "total": 21990,
     "direccion": "Mitre 400, Neuquen",
     "productos": [
-      { "id_producto": 23, "cantidad": 1 },
-      { "id_producto": 10, "cantidad": 1 }
+      {
+        "id_producto": 23,
+        "cantidad": 1
+      },
+      {
+        "id_producto": 10,
+        "cantidad": 1
+      }
     ],
     "envio_gratis": false
+  },
+  {
+    "usuario": {
+      "id": 1778892426546,
+      "nombre": "matias gonzalez",
+      "email": "matiaslunardini@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 16,
+        "nombre": "Matera de Cuero",
+        "desc": "Bolso reforzado para kit completo.",
+        "precio": 25000,
+        "imagen": "assets/img/acc-3.jpg",
+        "stock": 5,
+        "categoria": "Accesorios",
+        "cantidad": 1
+      },
+      {
+        "id": 2,
+        "nombre": "Mate Torpedo",
+        "desc": "Madera con interior de acero inoxidable.",
+        "precio": 18990,
+        "imagen": "assets/img/mate-2.jpg",
+        "stock": 15,
+        "categoria": "Mates",
+        "cantidad": 7
+      },
+      {
+        "id": 3,
+        "nombre": "Mate Camionero",
+        "desc": "Cuero vaqueta, base reforzada.",
+        "precio": 19500,
+        "imagen": "assets/img/mate-3.jpg",
+        "stock": 8,
+        "categoria": "Mates",
+        "cantidad": 2
+      }
+    ],
+    "total": 196930,
+    "idOrden": 1778892859501,
+    "fecha": "15/5/2026, 21:54:19"
+  },
+  {
+    "usuario": {
+      "id": 1778892426546,
+      "nombre": "matias gonzalez",
+      "email": "matiaslunardini@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 2,
+        "nombre": "Mate Torpedo",
+        "desc": "Madera con interior de acero inoxidable.",
+        "precio": 18990,
+        "imagen": "assets/img/mate-2.jpg",
+        "stock": 15,
+        "categoria": "Mates",
+        "cantidad": 1
+      }
+    ],
+    "total": 18990,
+    "idOrden": 1778893063167,
+    "fecha": "15/5/2026, 21:57:43"
+  },
+  {
+    "usuario": {
+      "id": 1778892455494,
+      "nombre": "vicky asogaray",
+      "email": "vickyasogaray@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 2,
+        "nombre": "Mate Torpedo",
+        "desc": "Madera con interior de acero inoxidable.",
+        "precio": 18990,
+        "imagen": "assets/img/mate-2.jpg",
+        "stock": 15,
+        "categoria": "Mates",
+        "cantidad": 5
+      },
+      {
+        "id": 18,
+        "nombre": "Mate Silicona Color",
+        "desc": "Flexible e irrompible.",
+        "precio": 7500,
+        "imagen": "assets/img/mate-6.jpg",
+        "stock": 25,
+        "categoria": "Mates",
+        "cantidad": 1
+      },
+      {
+        "id": 6,
+        "nombre": "Termo Acero 1L",
+        "desc": "Doble capa, conserva 12hs frío/calor.",
+        "precio": 30500,
+        "imagen": "assets/img/termo-1.jpg",
+        "stock": 10,
+        "categoria": "Termos",
+        "cantidad": 1
+      }
+    ],
+    "total": 132950,
+    "idOrden": 1778895721681,
+    "fecha": "15/5/2026, 22:42:01"
+  },
+  {
+    "usuario": {
+      "id": 1778892455494,
+      "nombre": "vicky asogaray",
+      "email": "vickyasogaray@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 18,
+        "nombre": "Mate Silicona Color",
+        "desc": "Flexible e irrompible.",
+        "precio": 7500,
+        "imagen": "assets/img/mate-6.jpg",
+        "stock": 25,
+        "categoria": "Mates",
+        "cantidad": 1
+      }
+    ],
+    "total": 7500,
+    "idOrden": 1778896083774,
+    "fecha": "15/5/2026, 22:48:03"
+  },
+  {
+    "usuario": {
+      "id": 1778892455494,
+      "nombre": "vicky asogaray",
+      "email": "vickyasogaray@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 11,
+        "nombre": "Yerba Intensa 1kg",
+        "desc": "Sabor fuerte y duradero.",
+        "precio": 10490,
+        "imagen": "assets/img/yerba-2.jpg",
+        "stock": 25,
+        "categoria": "Yerbas",
+        "cantidad": 1
+      },
+      {
+        "id": 2,
+        "nombre": "Mate Torpedo",
+        "desc": "Madera con interior de acero inoxidable.",
+        "precio": 18990,
+        "imagen": "assets/img/mate-2.jpg",
+        "stock": 15,
+        "categoria": "Mates",
+        "cantidad": 4
+      },
+      {
+        "id": 6,
+        "nombre": "Termo Acero 1L",
+        "desc": "Doble capa, conserva 12hs frío/calor.",
+        "precio": 30500,
+        "imagen": "assets/img/termo-1.jpg",
+        "stock": 10,
+        "categoria": "Termos",
+        "cantidad": 1
+      },
+      {
+        "id": 21,
+        "nombre": "Termo de Vidrio 1L",
+        "desc": "Interior de vidrio, ampolla repuesto.",
+        "precio": 15000,
+        "imagen": "assets/img/termo-5.jpg",
+        "stock": 9,
+        "categoria": "Termos",
+        "cantidad": 1
+      },
+      {
+        "id": 27,
+        "nombre": "Portatermo de Lona",
+        "desc": "Impermeable y lavable.",
+        "precio": 9800,
+        "imagen": "assets/img/acc-6.jpg",
+        "stock": 12,
+        "categoria": "Accesorios",
+        "cantidad": 2
+      }
+    ],
+    "total": 151550,
+    "idOrden": 1778898803466,
+    "fecha": "15/5/2026, 23:33:23"
   }
 ]

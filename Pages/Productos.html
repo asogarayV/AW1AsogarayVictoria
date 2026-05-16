@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Noble Cebada - Tienda</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Noble Cebada - Tienda</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="../Assets/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../Assets/styles.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <header id="navbar"></header>
+      <header id="navbar"></header>
 
-    <main>
-      <h1 class="titulo">Tienda</h1>
-      <section class="productos" id="productos-tienda">
-        <!-- JS crea las cards -->
-      </section>
-    </main>
+      <main>
+          <h1 class="titulo">Tienda</h1>
+          
+          <div class="filtros-container" style="text-align: center; margin: 20px;">
+              <button onclick="renderTiendaFiltrada('todos')">Todos</button>
+              <button onclick="renderTiendaFiltrada('Mates')">Mates</button>
+              <button onclick="renderTiendaFiltrada('Termos')">Termos</button>
+              <button onclick="renderTiendaFiltrada('Yerbas')">Yerbas</button>
+              <button onclick="renderTiendaFiltrada('Accesorios')">Accesorios</button>
+          </div>
 
-    <footer class="footer">
-      <p>© 2025 Noble Cebada · Todos los derechos reservados</p>
-    </footer>
+          <section class="productos" id="productos-tienda">
+              </section>
+      </main>
 
-    <script src="../Assets/app.js"></script>
-    <script>
-      initLoggedPage("navbar", "productos-tienda", "../");
-    </script>
+      <footer class="footer">
+          <p>© 2025 Noble Cebada · Todos los derechos reservados</p>
+      </footer>
+
+      <script src="../Assets/tienda.js"></script>
+      <script>
+          initTiendaPage();
+      </script>
   </body>
 </html>
