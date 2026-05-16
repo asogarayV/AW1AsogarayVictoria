@@ -459,7 +459,7 @@ body {
   to   { transform: scale(1); opacity: 1; }
 }
 
-/* MEDIAS QUERIES  */
+/* MEDIAS QUERIES */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
