@@ -1,37 +1,37 @@
-# Entrega 2: Servidor con Express.js - AW1
+# Entrega 4: Base de Datos No Relacional y Autenticación con JWT - AW1
 
-**Estudiante:** Victoria Asogaray   
-**Proyecto:** Backend E-commerce de Mates y Accesorios
+**Estudiante:** Victoria Asogaray  
+**Proyecto:** Backend E-commerce de Mates y Accesorios - "Noble Cebada"
 
-Documentación de Rutas (Endpoints)
-A continuación, se detallan las rutas disponibles para agilizar la corrección y pruebas en herramientas como Postman.
+En esta cuarta etapa, se migró la arquitectura del servidor basada en archivos locales hacia un motor de base de datos no relacional de producción. Además, se implementaron capas estrictas de ciberseguridad para la protección de datos sensibles y el control de acceso.
 
-1. Consultas (Método GET)
-Listar catálogo: GET http://localhost:3000/productos
+---
 
-Retorna el JSON completo con categorías de mates, termos, yerbas y accesorios.
+## Tecnologías Incorporadas
+* **MongoDB & Mongoose:** Migración completa del almacenamiento de usuarios hacia colecciones NoSQL nativas.
+* **Bcrypt:** Encriptación de contraseñas mediante hashing en segundo plano (Middleware de Mongoose) antes de guardarse en la base de datos.
+* **JSON Web Tokens (JWT):** Generación de tokens de seguridad firmados para validar la sesión y proteger acciones críticas del usuario.
 
-Buscar usuario por ID: GET http://localhost:3000/usuarios/101
+---
 
-Captura el ID mediante req.params para devolver los datos de un usuario específico.
+## Documentación de Rutas (Endpoints)
 
-2. Creación y Datos Sensibles (Método POST)
-Login de Usuario: POST http://localhost:3000/login
+A continuación, se detallan las rutas disponibles para pruebas en herramientas como Postman. 
+Nota: Los ID numéricos viejos fueron reemplazados por ObjectIDs de MongoDB.
 
-Procesa parámetros sensibles (email y contraseña) enviados en el req.body.
+### 1. Consultas (Método GET)
+* **Listar catálogo:** `GET http://localhost:3000/productos`  
+  Retorna el listado completo de productos distribuidos por categorías.
+* **Buscar usuario por ID:** `GET http://localhost:3000/usuarios/6a1c0a78403b1ef358e2093a`  
+  Busca y recupera un documento específico directamente desde MongoDB utilizando su `_id`.
 
-Registrar Producto: POST http://localhost:3000/productos
-
-Simula la inserción de un nuevo registro recibiendo un objeto JSON.
-
-3. Actualización (Método PUT)
-Editar Perfil: PUT http://localhost:3000/usuarios/102
-
-Actualiza la información de un usuario existente sin perder los datos previos.
-
-4. Eliminación e Integridad (Método DELETE)
-Borrar Usuario: DELETE http://localhost:3000/usuarios/:id
-
-Caso Error (Integridad): Si se intenta borrar el ID 101, el servidor responde con un 400 Bad Request debido a que existen registros vinculados en ventas.json.
-
-Caso Exitoso: Al borrar un usuario sin historial de ventas (ej. ID 106), la operación se realiza correctamente.
+### 2. Autenticación y Registro (Método POST)
+* **Registrar Usuario:** `POST http://localhost:3000/usuarios`  
+  Recibe los datos del formulario, valida que el email sea único y guarda el usuario encriptando la contraseña de forma segura.
+  ```json
+  {
+    "nombre": "Zoe",
+    "apellido": "Asogaray",
+    "email": "zoeasogaray@gmail.com",
+    "contrasena": "1234"
+  }

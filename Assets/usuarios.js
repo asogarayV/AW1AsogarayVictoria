@@ -1,17 +1,17 @@
-// Inicializar la lógica de la página de Login
+// Inicializar la lógica de la página de Login 
 function initLogin() {
-    const formulario = document.getElementById("form-login");
+    const formulario = document.getElementById("form-login"); 
     if (!formulario) return;
 
     formulario.addEventListener("submit", async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
-        // Capturamos los inputs del formulario por su orden
+        // Capturamos los campos de email y contraseña 
         const email = formulario.querySelectorAll("input")[0].value;
         const contrasena = formulario.querySelectorAll("input")[1].value;
 
         try {
-            // Enviamos los datos al backend
+            // Hacemos el fetch a servidor local
             const respuesta = await fetch("http://localhost:3000/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -21,17 +21,22 @@ function initLogin() {
             const datos = await respuesta.json();
 
             if (respuesta.ok) {
-                alert("¡Ingreso exitoso! " + datos.mensaje);
+                // Guardamos el JWT (Token) y los datos del usuario en el localStorage para que el sistema sepa quién está navegando
+                localStorage.setItem("token", datos.token);
+                localStorage.setItem("usuario", JSON.stringify(datos.usuario));
+
+                // Mostramos el mensaje personalizado que viene del backend 
+                alert(`🎉 ${datos.mensaje}! Iniciaste sesión correctamente.`);
+
+                // Redirigimos a la tienda de productos
+                window.location.href = "../index.html"; 
                 
-                sessionStorage.setItem("usuarioActivo", JSON.stringify(datos.usuario));
-                
-                // Volvemos a la tienda listos para comprar
-                window.location.href = "../index.html";
             } else {
-                alert("Error: " + datos.mensaje);
+                // Si el backend dice que la clave o el mail están mal
+                alert("Error al iniciar sesión: " + datos.mensaje);
             }
         } catch (error) {
-            console.error("Error en el login:", error);
+            console.error("Error en el fetch de login:", error);
             alert("No se pudo conectar con el servidor.");
         }
     });

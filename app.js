@@ -1,15 +1,18 @@
 import express from 'express';
 import cors from 'cors'; 
 import fs from 'fs/promises';
+import mongoose from 'mongoose';
+import Usuario from './Models/Usuario.js';
+import jwt from 'jsonwebtoken'; 
 
 const app = express(); 
 const port = 3000;
 
-// Middlewares: Permisos y lectura de JSON
+// Permisos y lectura de JSON
 app.use(cors()); 
 app.use(express.json());
 
-// HELPER: Función para leer los archivos JSON de la carpeta /Data
+// Función para leer los archivos JSON de la carpeta Data 
 async function leerDatos(archivo) {
     try {
         const data = await fs.readFile(`./Data/${archivo}.json`, 'utf-8');
@@ -20,8 +23,8 @@ async function leerDatos(archivo) {
     }
 }
 
-// ------------------------------------------------
-// 3. SOLICITUDES GET (Obtener datos)
+// Solicitudes GET
+
 // Listar todos los productos para la tienda
 app.get('/productos', async (req, res) => {
     try {
@@ -32,11 +35,10 @@ app.get('/productos', async (req, res) => {
     }
 });
 
-// Buscar un usuario específico por su ID
+// Buscar un usuario específico por su ID directamente en MongoDB
 app.get('/usuarios/:id', async (req, res) => {
     try {
-        const usuarios = await leerDatos('usuarios');
-        const encontrado = usuarios.find(u => u.id === parseInt(req.params.id));
+        const encontrado = await Usuario.findById(req.params.id);
         
         if (encontrado) {
             res.status(200).json(encontrado);
@@ -44,71 +46,113 @@ app.get('/usuarios/:id', async (req, res) => {
             res.status(404).json({ mensaje: "Usuario no encontrado" });
         }
     } catch (error) {
-        res.status(500).json({ mensaje: "Error en el servidor" });
+        res.status(500).json({ mensaje: "Error en el servidor al buscar usuario" });
     }
 });
 
-// ------------------------------------------------
-// 4. SOLICITUDES POST (Enviar datos nuevos)
-// Login: Verifica email y contraseña, enviando el objeto de usuario completo
-app.post('/login', async (req, res) => {
+// Verifica si el usuario tiene permiso para realizar acciones 
+function verificarToken(req, res, next) {
+    // Buscamos el token en los encabezados de la petición
+    const token = req.headers['authorization'];
+
+    if (!token) {
+        return res.status(403).json({ mensaje: "Acceso denegado. Se requiere un token de seguridad para operar." });
+    }
+
     try {
-        const { email, contrasena } = req.body; 
-        const usuarios = await leerDatos('usuarios');
-        const user = usuarios.find(u => u.email === email && u.contrasena === contrasena);
-
-        if (user) {
-           
-            res.status(200).json({ 
-                mensaje: `Bienvenida ${user.nombre}`, 
-                usuario: { id: user.id, nombre: user.nombre, apellido: user.apellido, email: user.email } 
-            });
-        } else {
-            res.status(401).json({ mensaje: "Email o clave incorrectos" });
-        }
+        const tokenLimpio = token.startsWith('Bearer ') ? token.split(' ')[1] : token;
+        const verificado = jwt.verify(tokenLimpio, 'ULTRA_SECRETO_NOBLE_CEBADA');
+        req.usuarioVerificado = verificado; 
+        next(); 
     } catch (error) {
-        res.status(500).json({ mensaje: "Error al procesar login" });
+        return res.status(401).json({ mensaje: "Token inválido o expirado. Por favor, vuelva a iniciar sesión." });
     }
-});
+}
 
+// Solicittudes POST
+// Guarda un nuevo usuario directamente en MongoDB con clave encriptada
 app.post('/usuarios', async (req, res) => {
     try {
         const { nombre, apellido, email, contrasena } = req.body;
-        const usuarios = await leerDatos('usuarios');
 
-        const existe = usuarios.find(u => u.email === email);
+        console.log("Datos recibidos en el registro:", { nombre, apellido, email, contrasena });
+
+        if (!nombre || !apellido || !email || !contrasena) {
+            return res.status(400).json({ mensaje: "Todos los campos son obligatorios" });
+        }
+
+        const existe = await Usuario.findOne({ email });
         if (existe) {
             return res.status(400).json({ mensaje: "El email ya está registrado" });
         }
 
-        const nuevoUsuario = {
-            id: Date.now(),
+        const nuevoUsuario = await Usuario.create({
             nombre,
             apellido,
             email,
             contrasena
-        };
+        });
 
-        usuarios.push(nuevoUsuario);
-
-        await fs.writeFile('./Data/usuarios.json', JSON.stringify(usuarios, null, 2), 'utf-8');
-
-        console.log("¡Nuevo usuario registrado con éxito!", nuevoUsuario);
+        console.log("Usuario guardado de forma segura en MongoDB", nuevoUsuario);
         
-      
         return res.status(201).json({ 
             mensaje: "Usuario registrado exitosamente", 
-            usuarioId: nuevoUsuario.id 
+            usuarioId: nuevoUsuario._id 
         });
 
     } catch (error) {
-        console.error("DETALLE DEL ERROR EN EL REGISTRO:", error);
+        console.error("Error detallado en el registro de MongoDB:", error);
         return res.status(500).json({ mensaje: "Error al procesar el registro en el servidor" });
     }
 });
 
-// Procesar Orden de Compra
-app.post('/compras', async (req, res) => {
+// Verifica las credenciales en MongoDB y genera un Token de seguridad (JWT)
+app.post('/login', async (req, res) => {
+    try {
+        const { email, contrasena } = req.body;
+
+        console.log("Intento de login para:", email);
+
+        // Buscamos si el usuario existe en MongoDB
+        const usuarioEncontrado = await Usuario.findOne({ email });
+        if (!usuarioEncontrado) {
+            return res.status(401).json({ mensaje: "Email o contraseña incorrectos" });
+        }
+
+        // Comparamos las contraseñas usando Bcrypt
+        const esValida = await usuarioEncontrado.compararContrasena(contrasena);
+        if (!esValida) {
+            return res.status(401).json({ mensaje: "Email o contraseña incorrectos" });
+        }
+
+        // Creamos el Token de seguridad (JWT)
+        const token = jwt.sign(
+            { id: usuarioEncontrado._id, email: usuarioEncontrado.email },
+            'ULTRA_SECRETO_NOBLE_CEBADA', 
+            { expiresIn: '2h' }
+        );
+
+        console.log(`Token generado con éxito para: ${usuarioEncontrado.email}`);
+
+        return res.status(200).json({
+            mensaje: `Bienvenido ${usuarioEncontrado.nombre}`,
+            token: token,
+            usuario: {
+                id: usuarioEncontrado._id,
+                nombre: usuarioEncontrado.nombre,
+                apellido: usuarioEncontrado.apellido,
+                email: usuarioEncontrado.email
+            }
+        });
+
+    } catch (error) {
+        console.error("Error en el proceso de Login:", error);
+        return res.status(500).json({ mensaje: "Error al procesar el login en el servidor" });
+    }
+});
+
+// Procesar orden de compra
+app.post('/compras', verificarToken, async (req, res) => {
     try {
         const nuevaOrden = req.body; 
         
@@ -126,7 +170,6 @@ app.post('/compras', async (req, res) => {
 
         ventas.push(nuevaOrden);
 
-       
         await fs.writeFile('./Data/ventas.json', JSON.stringify(ventas, null, 2), 'utf-8');
 
         console.log("¡Nueva orden recibida y guardada con éxito en ventas.json!", nuevaOrden);
@@ -147,17 +190,12 @@ app.post('/productos', (req, res) => {
     res.status(201).json({ mensaje: "Producto registrado con éxito", data: nuevo });
 });
 
-// ------------------------------------------------
-// 5. SOLICITUDES PUT Y DELETE (Actualizar y Borrar)
+// Solicitudes PUT Y DELETE 
 // Actualizar datos de un usuario
 app.put('/usuarios/:id', async (req, res) => {
     try {
-        const id = parseInt(req.params.id);
-        const usuarios = await leerDatos('usuarios');
-        const index = usuarios.findIndex(u => u.id === id);
-
-        if (index !== -1) {
-            const actualizado = { ...usuarios[index], ...req.body };
+        const actualizado = await Usuario.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (actualizado) {
             res.status(200).json({ mensaje: "Usuario actualizado", data: actualizado });
         } else {
             res.status(404).json({ mensaje: "No se encontró el usuario" });
@@ -167,14 +205,12 @@ app.put('/usuarios/:id', async (req, res) => {
     }
 });
 
-// Eliminar un usuario 
+// Eliminar un usuario
 app.delete('/usuarios/:id', async (req, res) => {
     try {
-        const idAEliminar = parseInt(req.params.id);
+        // Validación de integridad simulada con el JSON de ventas actual
         const ventas = await leerDatos('ventas');
-        const usuarios = await leerDatos('usuarios');
-
-        const tieneVentas = ventas.some(v => v.id_usuario === idAEliminar);
+        const tieneVentas = ventas.some(v => v.id_usuario === req.params.id);
 
         if (tieneVentas) {
             return res.status(400).json({ 
@@ -182,21 +218,27 @@ app.delete('/usuarios/:id', async (req, res) => {
             });
         }
 
-        const existe = usuarios.find(u => u.id === idAEliminar);
-        if (!existe) return res.status(404).json({ mensaje: "Usuario no existe" });
+        const eliminado = await Usuario.findByIdAndDelete(req.params.id);
+        if (!eliminado) return res.status(404).json({ mensaje: "Usuario no existe" });
 
-        res.status(200).json({ mensaje: "Usuario eliminado (Simulado)" });
+        res.status(200).json({ mensaje: "Usuario eliminado con éxito de MongoDB" });
     } catch (error) {
         res.status(500).json({ mensaje: "Error al intentar eliminar" });
     }
 });
 
-// 6. INICIO DEL SERVIDOR
-app.listen(port, () => {
-    console.log("--------------------------------------------------");
-    console.log(`Servidor de Victoria corriendo en http://localhost:${port}`);
-    console.log("--------------------------------------------------");
-});
+// Inicio del servidor y conexion con Mongo
+mongoose.connect('mongodb://localhost:27017/noble_cebada')
+    .then(() => {
+        console.log("----------------================------------------");
+        console.log("¡Conectado con éxito a MongoDB (noble_cebada)!");
+        console.log("----------------================------------------");
 
-
-
+        app.listen(port, () => {
+            console.log(`Servidor de Victoria corriendo en http://localhost:${port}`);
+            console.log("--------------------------------------------------");
+        });
+    })
+    .catch((error) => {
+        console.error("Error fatal al conectar a MongoDB:", error);
+    });

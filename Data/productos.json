@@ -232,7 +232,7 @@
     },
     {
       "id": 26,
-      "nombre": "Set Limpieza Bombilla",
+      "nombre": "Limpia Bombilla",
       "desc": "Cepillo fino de nylon.",
       "precio": 2500,
       "imagen": "assets/img/acc-5.jpg",

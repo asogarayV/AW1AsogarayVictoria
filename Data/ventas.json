@@ -310,5 +310,93 @@
     "total": 151550,
     "idOrden": 1778898803466,
     "fecha": "15/5/2026, 23:33:23"
+  },
+  {
+    "usuario": {
+      "id": "6a2b468fadcac6bd72e40874",
+      "nombre": "test test1",
+      "email": "test@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 26,
+        "nombre": "Set Limpieza Bombilla",
+        "desc": "Cepillo fino de nylon.",
+        "precio": 2500,
+        "imagen": "assets/img/acc-5.jpg",
+        "stock": 50,
+        "categoria": "Accesorios",
+        "cantidad": 1
+      }
+    ],
+    "total": 2500,
+    "idOrden": 1781221359234,
+    "fecha": "11/6/2026, 20:42:39"
+  },
+  {
+    "usuario": {
+      "id": "6a2b468fadcac6bd72e40874",
+      "nombre": "test test1",
+      "email": "test@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 21,
+        "nombre": "Termo de Vidrio 1L",
+        "desc": "Interior de vidrio, ampolla repuesto.",
+        "precio": 15000,
+        "imagen": "assets/img/termo-5.jpg",
+        "stock": 9,
+        "categoria": "Termos",
+        "cantidad": 1
+      }
+    ],
+    "total": 15000,
+    "idOrden": 1781221388328,
+    "fecha": "11/6/2026, 20:43:08"
+  },
+  {
+    "usuario": {
+      "id": "6a2b468fadcac6bd72e40874",
+      "nombre": "test test1",
+      "email": "test@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 22,
+        "nombre": "Termo Deportivo 500ml",
+        "desc": "Pico cebador rápido.",
+        "precio": 18500,
+        "imagen": "assets/img/termo-6.jpg",
+        "stock": 20,
+        "categoria": "Termos",
+        "cantidad": 1
+      }
+    ],
+    "total": 18500,
+    "idOrden": 1781221600958,
+    "fecha": "11/6/2026, 20:46:40"
+  },
+  {
+    "usuario": {
+      "id": "6a2b468fadcac6bd72e40874",
+      "nombre": "test test1",
+      "email": "test@gmail.com"
+    },
+    "productos": [
+      {
+        "id": 3,
+        "nombre": "Mate Camionero",
+        "desc": "Cuero vaqueta, base reforzada.",
+        "precio": 19500,
+        "imagen": "assets/img/mate-3.jpg",
+        "stock": 8,
+        "categoria": "Mates",
+        "cantidad": 1
+      }
+    ],
+    "total": 19500,
+    "idOrden": 1781221658404,
+    "fecha": "11/6/2026, 20:47:38"
   }
 ]

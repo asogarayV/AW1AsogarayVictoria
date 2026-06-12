@@ -24,7 +24,7 @@ async function cargarProductos() {
     }
 }
 
-//  Crear la tarjeta 
+// Crear la tarjeta 
 function crearCardProducto(producto, basePath = "") {
     const card = document.createElement("div");
     card.className = "card";
@@ -35,7 +35,7 @@ function crearCardProducto(producto, basePath = "") {
         <img src="${basePath}${rutaImagen}" alt="${producto.nombre}">
         <div class="card-info">
             <h3>${producto.nombre}</h3>
-            <p>${producto.desc}</p>
+            <p>${producto.desc || ''}</p>
             <p class="precio">$${producto.precio.toLocaleString("es-AR")}</p>
             
             <div class="cantidad-selector">
@@ -48,7 +48,6 @@ function crearCardProducto(producto, basePath = "") {
     `;
     return card;
 }
-
 
 function mostrarProductosEnGrilla(listaProductos, containerId) {
     const contenedor = document.getElementById(containerId);
@@ -66,7 +65,6 @@ function mostrarProductosEnGrilla(listaProductos, containerId) {
     });
 }
 
-
 async function aplicarFiltro(categoriaSeleccionada) {
     const lista = await cargarProductos();
     
@@ -83,9 +81,7 @@ async function initHomePage() {
     mostrarProductosEnGrilla(lista, "productos-destacados");
 }
 
-// 6. Lógica de agregar al carrito con cantidades
-function organizarCompra() {} 
-
+// Lógica de agregar al carrito con cantidades
 function prepararAgregado(id) {
     const inputCant = document.getElementById(`cant-${id}`);
     const cantidadSeleccionada = parseInt(inputCant.value);
@@ -110,58 +106,31 @@ function agregarAlCarrito(id, cantidad = 1) {
     alert(`¡Sumaste ${cantidad} ${producto.nombre} al carrito! 🧉`);
 }
 
+// Boton finalizar compra
 async function finalizarCompra() {
-    // Validamos que haya productos en el carrito
     if (carrito.length === 0) {
         alert("Tu carrito está vacío. ¡Sumá productos antes de comprar!");
         return;
     }
 
-    // Buscamos si hay un usuario activo en la sesión
-    const usuarioSesion = sessionStorage.getItem("usuarioActivo");
+    // Buscamos si existen las credenciales en el navegador
+    const token = localStorage.getItem("token");
+    const usuarioSesion = localStorage.getItem("usuario");
 
-    // Si no inició sesión, lo frenamos y lo mandamos a loguearse
-    if (!usuarioSesion) {
+    // Si NO inició sesión (no hay token), la frenamos y la mandamos a loguearse
+    if (!token || !usuarioSesion) {
         alert("Para finalizar la compra, primero debés iniciar sesión. ¡Te redirigimos!");
         const enSubcarpeta = window.location.pathname.includes("/Pages/");
         window.location.href = enSubcarpeta ? "./LogIn.html" : "./Pages/LogIn.html";
         return;
     }
 
-    const usuarioReal = JSON.parse(usuarioSesion);
-
-    const orden = {
-        usuario: {
-            id: usuarioReal.id,
-            nombre: `${usuarioReal.nombre} ${usuarioReal.apellido}`,
-            email: usuarioReal.email
-        },
-        productos: carrito,
-        total: carrito.reduce((acc, p) => acc + (p.precio * p.cantidad), 0)
-    };
-
-    try {
-        // Enviamos la orden real al backend
-        const respuesta = await fetch("http://localhost:3000/compras", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(orden)
-        });
-
-        const data = await respuesta.json();
-
-        if (respuesta.ok) {
-            alert("¡Éxito! " + data.mensaje);
-            
-            // Limpiamos el carrito porque la compra ya se hizo
-            carrito = [];
-            localStorage.removeItem("carrito");
-            location.reload(); 
-        } else {
-            alert("Error: " + data.mensaje);
-        }
-    } catch (error) {
-        console.error("Error al procesar la compra:", error);
-        alert("El servidor de Node.js está apagado o no responde.");
-    }
+    // Si está logueado redirigimos directo a página del carrito
+    console.log("Usuario verificado con éxito. Redirigiendo al carrito...");
+    
+    const enSubcarpeta = window.location.pathname.includes("/Pages/");
+    window.location.href = enSubcarpeta ? "./carrito.html" : "./Pages/carrito.html";
 }
+
+// Aseguramos el inicio de la carga al abrir el index.html
+document.addEventListener("DOMContentLoaded", initHomePage);
